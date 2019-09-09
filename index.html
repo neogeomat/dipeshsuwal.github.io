@@ -8,103 +8,81 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="style.css" </head>
+    <style>
+        .mytab {
+            width: 14.28% !important;
+            /* 12.5% for 8 tabs wide */
+            clear: none !important;
+            /* Prevent line break caused by ui-block-a */
+        }
+        
+        .ui-icon-temp:after {
+            background-image: url("icon/thermometer.svg");
+        }
+    </style>
 
     <body>
-        <div data-role="page" id="status">
-            <div data-role="header">
-                <h1>IVS e-QuickStatus</h1>
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#status" class="ui-btn ui-icon-home ui-btn-icon-bottom ui-shadow ui-btn-active">Status</a></li>
-                        <li><a href="#mark5" class="ui-btn ui-icon-grid ui-btn-icon-bottom ui-shadow">Mark5</a></li>
-                        <li><a href="#system" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">System</a></li>
-                        <li><a href="#environment" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">Environment</a></li>
-                    </ul>
-                </div>
-                <!-- /navbar -->
+        <div data-role="header" data-theme='a'>
+            <div data-role="navbar">
+                <h1 class="ui-header ui-title">IVS e-QuickStatus</h1>
+                <ul>
+                    <!-- href must be same as data-title on pages preceeded by # -->
+                    <li class="mytab"><a href="#status" class=" ui-btn ui-icon-home ui-btn-icon-bottom ui-shadow ui-btn-active">Status</a></li>
+                    <li class="mytab"><a href="#mark5" class=" ui-btn ui-icon-grid ui-btn-icon-bottom ui-shadow">Mark 5 Capacity</a></li>
+                    <li class="mytab"><a href="#systemtemp" class=" ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">System Temperatures</a></li>
+                    <li class="mytab"><a href="#antenna" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Antenna Monitoring</a></li>
+                    <li class="mytab"><a href="#station" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Station Monitoring</a></li>
+                    <li class="mytab"><a href="#logs" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Logs</a></li>
+                    <li class="mytab"><a href="#picture" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Antenna Picture</a></li>
+                </ul>
             </div>
-            <!-- /header -->
-
+            <!-- /navbar -->
+        </div>
+        <!-- /header -->
+        <div data-role="page" id="status" data-title="status">
             <div data-role="content" id='StatusPage'>
-                <!-- <div class="ui-grid-a">
-                    <div class="ui-block-b">
-                        <div class="ui-bar ui-bar-a" id='Antenna'>Antenna Name: <span id="" class="ui-li-count"></span></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div class="ui-bar ui-bar-a" id='Time'>Time<span id="" class="ui-li-count"></span></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div class="ui-bar ui-bar-a" id='Temp'>Temp: <span id="" class="ui-li-count"></span></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div class="ui-bar ui-bar-a" id='Errors'>Errors<span id="" class="ui-li-count"></span></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div class="ui-bar ui-bar-a" id='Errors'>Errors<span id="" class="ui-li-count"></span></div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div class="ui-bar ui-bar-a" id='Errors'>Errors<span id="" class="ui-li-count"></span></div>
-                    </div>
-                </div> -->
-                <!-- /grid-a -->
             </div>
             <!-- /content -->
         </div>
-        <div data-role="page" id="mark5">
-            <div data-role="header">
-                <h1>IVS e-QuickStatus</h1>
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#status" class="ui-btn ui-icon-home ui-btn-icon-bottom ui-shadow ui-btn-active">Status</a></li>
-                        <li><a href="#mark5" class="ui-btn ui-icon-grid ui-btn-icon-bottom ui-shadow">Mark5</a></li>
-                        <li><a href="#system" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">System</a></li>
-                        <li><a href="#environment" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">Environment</a></li>
-                    </ul>
-                </div>
-                <!-- /navbar -->
-            </div>
-            <!-- /header -->
-            <div data-role="content">
+        <div data-role="page" id="mark5" data-title="mark5">
+            <div data-role="content" id="mark5page">
             </div>
             <!-- /content -->
         </div>
-        <div data-role="page" id="system" data-add-back-btn="true">
-            <div data-role="header">
-                <h1>IVS e-QuickStatus</h1>
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#status" class="ui-btn ui-icon-home ui-btn-icon-bottom ui-shadow ui-btn-active">Status</a></li>
-                        <li><a href="#mark5" class="ui-btn ui-icon-grid ui-btn-icon-bottom ui-shadow">Mark5</a></li>
-                        <li><a href="#system" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">System</a></li>
-                        <li><a href="#environment" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">Environment</a></li>
-                    </ul>
-                </div>
-                <!-- /navbar -->
-            </div>
-            <!-- /header -->
-            <div data-role="content">
+        <div data-role="page" id="systemtemp" data-title="systemtemp">
+            <div data-role="content" id="systemtemppage">
             </div>
             <!-- /content -->
         </div>
-        <div data-role="page" id="environment" data-add-back-btn="true">
-            <div data-role="header">
-                <h1>IVS e-QuickStatus</h1>
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#status" class="ui-btn ui-icon-home ui-btn-icon-bottom ui-shadow ui-btn-active">Status</a></li>
-                        <li><a href="#mark5" class="ui-btn ui-icon-grid ui-btn-icon-bottom ui-shadow">Mark5</a></li>
-                        <li><a href="#system" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">System</a></li>
-                        <li><a href="#environment" class="ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">Environment</a></li>
-                    </ul>
-                </div>
-                <!-- /navbar -->
+        <div data-role="page" id="antenna" data-title="antenna">
+            <div data-role="content" id="antennapage">
             </div>
-            <!-- /header -->
-            <div data-role="content">
+            <!-- /content -->
+        </div>
+        <div data-role="page" id="station" data-title="station">
+            <div data-role="content" id="stationpage">
+            </div>
+            <!-- /content -->
+        </div>
+        <div data-role="page" id="logs" data-title="logs">
+            <div data-role="content" id="logspage">
+            </div>
+            <!-- /content -->
+        </div>
+        <div data-role="page" id="picture" data-title="picture">
+            <div data-role="content" id="picturepage">
             </div>
             <!-- /content -->
         </div>
     </body>
-    <script src="app.js"></script>
+
+    <script src="js/statuspage.js"></script>
+    <script src="js/mark5page.js"></script>
+    <script src="js/systemtemppage.js"></script>
+    <script src="js/antennapage.js"></script>
+    <script src="js/stationpage.js"></script>
+    <script src="js/logspage.js"></script>
+    <script src="js/picturepage.js"></script>
+    <script src="js/app.js "></script>
 
 </html>

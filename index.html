@@ -7,33 +7,45 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="style.css" </head>
+    <link rel="stylesheet" href="style.css"> </head>
     <style>
-        .mytab {
-            width: 14.28% !important;
+     .mytab {
+            width: 33.333% !important;
             /* 12.5% for 8 tabs wide */
-            clear: none !important;
-            /* Prevent line break caused by ui-block-a */
-        }
         
-        .ui-icon-temp:after {
-            background-image: url("icon/thermometer.svg");
-        }
+        clear: none !important;
+        /* Prevent line break caused by ui-block-a */
+    }
+    .mytab2 {
+            width: 25% !important;
+            /* 12.5% for 8 tabs wide */
+        
+        clear: none !important;
+        /* Prevent line break caused by ui-block-a */
+    }
+    .ui-icon-temp:after {
+        background-image: url("icon/thermometer.svg");
+    }
+    .ui-icon-ant:after {
+        background-image: url("icon/transmission.svg");
+    }
     </style>
 
     <body>
         <div data-role="header" data-theme='a'>
-            <div data-role="navbar">
+            <div data-role="navbar" data-grid="b">
                 <h1 class="ui-header ui-title">IVS e-QuickStatus</h1>
                 <ul>
                     <!-- href must be same as data-title on pages preceeded by # -->
                     <li class="mytab"><a href="#status" class=" ui-btn ui-icon-home ui-btn-icon-bottom ui-shadow ui-btn-active">Status</a></li>
                     <li class="mytab"><a href="#mark5" class=" ui-btn ui-icon-grid ui-btn-icon-bottom ui-shadow">Mark 5 Capacity</a></li>
-                    <li class="mytab"><a href="#systemtemp" class=" ui-btn ui-icon-location ui-btn-icon-bottom ui-shadow">System Temperatures</a></li>
-                    <li class="mytab"><a href="#antenna" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Antenna Monitoring</a></li>
-                    <li class="mytab"><a href="#station" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Station Monitoring</a></li>
-                    <li class="mytab"><a href="#logs" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Logs</a></li>
-                    <li class="mytab"><a href="#picture" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Antenna Picture</a></li>
+                    <li class="mytab"><a href="#systemtemp" class=" ui-btn ui-icon-temp ui-btn-icon-bottom ui-shadow">System Temperatures</a></li>
+                    <li class="mytab2"><a href="#antenna" class=" ui-btn ui-icon-ant ui-btn-icon-bottom ui-shadow">Antenna Monitoring</a></li>
+                    <li class="mytab2"><a href="#picture" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">WebCam</a></li>
+
+                    <li class="mytab2"><a href="#station" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Station Monitoring</a></li>
+                    <li class="mytab2"><a href="#logs" class=" ui-btn ui-icon-eye ui-btn-icon-bottom ui-shadow">Logs</a></li>
+
                 </ul>
             </div>
             <!-- /navbar -->

@@ -1,4 +1,9 @@
 function updateLogs() {
+    //var alpha = document.getElementById("Error");
+    //div.scrollTop = div.scrollHeight - div.clientHeight;
+    //alpha.scrollIntoView(false);
+    //alpha.scrollTop = alpha.scrollHeight;
+    
     let col = 2;
     $status = {
         'Error': [1, 1],
@@ -52,12 +57,40 @@ function updateLogs() {
         for (const ele in $status) {
             if ($status.hasOwnProperty(ele)) {
                 const element = $status[ele];
+                //console.log($table.children[element[0]].children[element[1]].textContent);
+                //console.log($table.children[element[0]].children[element[1]].innerHTML);
+                
                 // $('#' + ele + ' span').text($table.children[element[0]].children[element[1]].textContent);
                 $block = $('<div>', { class: 'ui-block-' + block_letter });
+                
+                $grid.append($(`<div>`, { class: 'ui-block-' + block_letter }).html(`<div class="ui-bar ui-bar-b">${ele}</div>`));
+                
                 $grid.append($block);
 
-                $block.append($(`<div class="ui-bar ui-bar-a" id=${ele}>${ele}:</br>${$table.children[element[0]].children[element[1]].children[0].innerHTML} </span></div>`));
+                $block.append($(`<div class="ui-bar ui-bar-a" id=${ele} style="overflow-y:auto; overflow-x:hidden; height:225px; ">${$table.children[element[0]].children[element[1]].children[0].innerHTML} </span></div>`));
+                
+
+                //$('#Error').scrollTop($('#Error')[0].scrollHeight);
+                //$('#Logs').scrollTop($('#Logs')[0].scrollHeight);
+                //Comment: How to perform action on id=${ele}, I tried but couldn't. Just need to perform above action.
+                
+                
             }
+            
+             $grid.append('<br>');
+            
+            if (ele.localeCompare("Error")==0){
+                    console.log(ele);
+                    $('#Error').scrollTop($('#Error')[0].scrollHeight);
+                    }
+                    
+           
+            
+            else if (ele.localeCompare("Logs")==0){
+                     console.log(ele);
+                    $('#Logs').scrollTop($('#Logs')[0].scrollHeight);
+                    }
+            
         }
         $.mobile.loading("hide");
     });

@@ -9,7 +9,7 @@ function updateStation() {
     };
     let $dataB = {
         'Time': [1, 1],
-        'EFOS39': [2, 1],
+        'EFOS18': [2, 1],
         'TAC2': [3, 1]
     };
     let $dataC = {
@@ -17,19 +17,23 @@ function updateStation() {
         'dotmon': [2, 1],
         'Time2': [3, 1],
         'mk5=dot?': [4, 1]
+    };    
+    let $dataD = {
+        'Session': [1, 0],
     };
-
+  
     let $data = {
         'Dewar': $dataA,
         'Master Clock Offset': $dataB,
         'Local Frequency': $dataC
     };
-    $.mobile.loading('show', {
-        text: 'Loading',
-        textVisible: true,
-        theme: 'z',
-        html: ""
-    });
+           
+//    $.mobile.loading('show', {
+//        text: 'Loading',
+//        textVisible: true,
+//        theme: 'z',
+//        html: ""
+//    });
     // $.get('https://cors-anywhere.herokuapp.com/' + 'https://vlbisysmon.evlbi.wettzell.de/monitoring_archive/fs_web_pages/wettzell/StationMonitoring.html', function(data) {
     //     $ht = $.parseHTML(data);
     //     console.log($ht);
@@ -40,11 +44,36 @@ function updateStation() {
         $w = data.contents;
         $ht = $.parseHTML($w);
         // debugger;
-        $table = $ht[3]["children"][0];
+        $table = {};
 
         $dewar_table = $ht[3].children[0].children[0];
         $master_table = $ht[5].children[0].children[0];
         $local_table = $ht[7].children[0].children[0];
+
+        $table['Dewar'] = $dewar_table;
+        $table['Master Clock Offset'] = $master_table;
+        $table['Local Frequency'] = $local_table;
+        
+        
+        if ($local_table.children[1].children[0].textContent.localeCompare(" No active session! ")==0)
+            {
+                console.log('No Active');
+                
+                $data = {
+                'Dewar': $dataA,
+                'Master Clock Offset': $dataB,
+                'Local Frequency': $dataD
+                };     
+        }
+        else
+            {
+                console.log('Red');
+                let $data = {
+                'Dewar': $dataA,
+                'Master Clock Offset': $dataB,
+                'Local Frequency': $dataC
+                };   
+        }
 
         // console.log($table.children[row].children[col].textContent);
         $content = $('#stationpage');
@@ -74,6 +103,7 @@ function updateStation() {
 
         for (const title in $data) {
             const $row = $data[title];
+            //console.log(title);
             if ($content[0].innerHTML === '') {
                 $grid = {};
             }
@@ -90,12 +120,23 @@ function updateStation() {
                 // $('#' + ele + ' span').text($table.children[elementA[0]].children[elementA[1]].textContent);
                 $block = $('<div>', { class: 'ui-block-' + block_letter });
                 $grid[`${title} body`].append($block);
-                $block.append($(`<div class="ui-bar ui-bar-a" id=${ele} style="height:50px">${ele}: <span id="" class="ui-li-count">${$dewar_table.children[elementA[0]].children[elementA[1]].innerHTML} </span></div>`));
+                $block.append($(`<div class="ui-bar ui-bar-a">${ele}: <span class="ui-li-count">${$table[title].children[elementA[0]].children[elementA[1]].textContent} </span></div>`)); // changed here innerhtml to textcontent
+                
+                //console.log($table[title].children[elementA[0]].children[elementA[1]].textContent);
+                
+//                if ($table[title].children[elementA[0]].children[elementA[1]].textContent.localeCompare(" No active session! ")==0)
+//                    {
+//                    console.log(elementA[0]);
+//                    console.log('Green');
+//                
+//                    }
+                
             }
-
+            
+                
             $content.append($('<br>'));
         }
         // console.log(data);
-        $.mobile.loading("hide");
+       // $.mobile.loading("hide");
     });
 }

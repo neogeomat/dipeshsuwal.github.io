@@ -1,4 +1,5 @@
-$reloadTime = 60000;
+$reloadTime = 1000; // 1 min=60s=60000ms
+$reloadTime2 = 60000; //only for logs
 
 $(document).on("pageshow", "#status", function(e) {
     persistentNavbar(e);
@@ -18,31 +19,31 @@ $(document).on("pageshow", "#systemtemp", function(e) {
     persistentNavbar(e);
     console.log('pageshow triggered');
     updateSystemTemp();
-    // setInterval(updateSystemTemp, $reloadTime);
+    setInterval(updateSystemTemp, $reloadTime);
 });
 $(document).on("pageshow", "#antenna", function(e) {
     persistentNavbar(e);
     console.log('pageshow triggered');
     updateAntenna();
-    // setInterval(updateSystemTemp, $reloadTime);
+    setInterval(updateAntenna, $reloadTime);
 });
 $(document).on("pageshow", "#station", function(e) {
     persistentNavbar(e);
     console.log('pageshow triggered');
     updateStation();
-    // setInterval(updateSystemTemp, $reloadTime);
+    setInterval(updateStation, $reloadTime);
 });
 $(document).on("pageshow", "#logs", function(e) {
     persistentNavbar(e);
     console.log('pageshow triggered');
     updateLogs();
-    // setInterval(updateSystemTemp, $reloadTime);
+    setInterval(updateLogs, $reloadTime2);
 });
 $(document).on("pageshow", "#picture", function(e) {
     persistentNavbar(e);
     console.log('pageshow triggered');
     updatePicture();
-    // setInterval(updateSystemTemp, $reloadTime);
+    setInterval(updatePicture, $reloadTime);
 });
 $(document).ready(function() {
     // $.mobile.changePage("#mark5");

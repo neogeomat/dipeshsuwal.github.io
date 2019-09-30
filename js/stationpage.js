@@ -1,5 +1,5 @@
 function updateStation() {
-    let col = 4;
+    let col = 2;
     let $dataA = {
         'Time': [1, 1],
         '70K': [2, 1],
@@ -107,8 +107,11 @@ function updateStation() {
             if ($content[0].innerHTML === '') {
                 $grid = {};
             }
-            $grid[title] = $('<div>', { class: `ui-grid-solo ui-responsive` });
-            $grid[title].append($(`<div>`, { class: `ui-block-${block_letter}` }).html(title));
+            $grid[title] = $('<div>', { class: `ui-grid-solo ui-responsive`});
+           // $grid[title].append($(`<div>`, { class: `ui-block-${block_letter}`}).html(title));
+            
+            $grid[title].append($(`<div>`, { class: `ui-block-${block_letter}`}).html(`<div class="ui-bar ui-bar-b">${title}</div>`));
+            
             $grid[`${title} body`] = $('<div>', { class: `ui-grid-${grid_letter} ui-responsive` });
             $content.append($grid[title]);
             $content.append($grid[`${title} body`]);

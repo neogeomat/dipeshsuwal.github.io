@@ -3,12 +3,12 @@ function updatePicture() {
     $status = {
         'Error': [1, 1]
     };
-    $.mobile.loading('show', {
-        text: 'Loading',
-        textVisible: true,
-        theme: 'z',
-        html: ""
-    });
+//    $.mobile.loading('show', {
+//        text: 'Loading',
+//        textVisible: true,
+//        theme: 'z',
+//        html: ""
+//    });
     // $.get('https://cors-anywhere.herokuapp.com/' + 'https://vlbisysmon.evlbi.wettzell.de/monitoring_archive/fs_web_pages/wettzell/WebCam.html?z-index=2', function(data) {
     //     $ht = $.parseHTML(data);
     //     console.log($ht);
@@ -61,6 +61,6 @@ function updatePicture() {
                 $block.append($image);
             }
         }
-        $.mobile.loading("hide");
+    //    $.mobile.loading("hide");
     });
 }

@@ -5,16 +5,16 @@ function updateLogs() {
     //alpha.scrollTop = alpha.scrollHeight;
     
     let col = 2;
-    $status = {
+    $logstatus = {
         'Error': [1, 1],
         'Logs': [2, 1]
     };
-    $.mobile.loading('show', {
-        text: 'Loading',
-        textVisible: true,
-        theme: 'z',
-        html: ""
-    });
+//    $.mobile.loading('show', {
+//        text: 'Loading',
+//        textVisible: true,
+//        theme: 'z',
+//        html: ""
+//    });
     // $.get('https://cors-anywhere.herokuapp.com/' + 'https://vlbisysmon.evlbi.wettzell.de/monitoring_archive/fs_web_pages/wettzell/Log.html', function(data) {
     //     $ht = $.parseHTML(data);
     //     console.log($ht);
@@ -53,21 +53,28 @@ function updateLogs() {
         }
         $grid = $('<div>', { class: `ui-grid-${grid_letter} ui-responsive` });
         $content.append($grid);
+        //$content.append('<br>');
         // debugger;
-        for (const ele in $status) {
-            if ($status.hasOwnProperty(ele)) {
-                const element = $status[ele];
+        for (const ele in $logstatus) {
+            if ($logstatus.hasOwnProperty(ele)) {
+                const element = $logstatus[ele];
                 //console.log($table.children[element[0]].children[element[1]].textContent);
                 //console.log($table.children[element[0]].children[element[1]].innerHTML);
                 
                 // $('#' + ele + ' span').text($table.children[element[0]].children[element[1]].textContent);
+                
+               
+                
+                
                 $block = $('<div>', { class: 'ui-block-' + block_letter });
-                
-                $grid.append($(`<div>`, { class: 'ui-block-' + block_letter }).html(`<div class="ui-bar ui-bar-b">${ele}</div>`));
-                
                 $grid.append($block);
+                
+                $block.append($(`<div class="ui-bar ui-bar-b">${ele}</div>`));
+                
+                
 
                 $block.append($(`<div class="ui-bar ui-bar-a" id=${ele} style="overflow-y:auto; overflow-x:hidden; height:225px; ">${$table.children[element[0]].children[element[1]].children[0].innerHTML} </span></div>`));
+                $block.append('<br>');
                 
 
                 //$('#Error').scrollTop($('#Error')[0].scrollHeight);
@@ -77,7 +84,7 @@ function updateLogs() {
                 
             }
             
-             $grid.append('<br>');
+            // $grid.append('<br>');
             
             if (ele.localeCompare("Error")==0){
                     console.log(ele);
@@ -92,6 +99,6 @@ function updateLogs() {
                     }
             
         }
-        $.mobile.loading("hide");
+      //  $.mobile.loading("hide");
     });
 }

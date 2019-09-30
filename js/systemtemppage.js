@@ -13,12 +13,12 @@ function updateSystemTemp() {
         'Ts-U': [4, 2],
         'Ts-L': [4, 3]
     };
-    $.mobile.loading('show', {
-        text: 'Loading',
-        textVisible: true,
-        theme: 'z',
-        html: ""
-    });
+//    $.mobile.loading('show', {
+//        text: 'Loading',
+//        textVisible: true,
+//        theme: 'z',
+//        html: ""
+//    });
     // $.get('https://cors-anywhere.herokuapp.com/' + 'https://vlbisysmon.evlbi.wettzell.de/monitoring_archive/fs_web_pages/wettzell/SystemTemperatures.html', function(data) {
     //     $ht = $.parseHTML(data);
     //     console.log($ht);
@@ -67,7 +67,7 @@ function updateSystemTemp() {
             // $('#' + ele + ' span').text($table.children[elementA[0]].children[elementA[1]].textContent);
             $block = $('<div>', { class: 'ui-block-' + block_letter });
             $gridA.append($block);
-            $block.append($(`<div class="ui-bar ui-bar-a" id=${ele}>${ele}</div>`));
+            $block.append($(`<div class="ui-bar ui-bar-b" id=${ele}>${ele}</div>`));
         }
         for (const ele in $tempSys) {
             // debugger
@@ -87,7 +87,7 @@ function updateSystemTemp() {
             const elementB = $dataB[ele];
             $block = $('<div>', { class: 'ui-block-' + block_letter });
             $gridB.append($block);
-            $block.append($(`<div class="ui-bar ui-bar-a" id=${ele}>${ele}</div>`));
+            $block.append($(`<div class="ui-bar ui-bar-b" id=${ele}>${ele}</div>`));
         }
         for (let i = 0; i < nooftemps; i++) {
             for (const ele in $dataB) {
@@ -98,6 +98,6 @@ function updateSystemTemp() {
             }
         }
         // console.log(data);
-        $.mobile.loading("hide");
+      //  $.mobile.loading("hide");
     });
 }

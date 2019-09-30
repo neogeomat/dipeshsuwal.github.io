@@ -26,12 +26,12 @@ function updateAntenna() {
         'Com Pos Offset': $dataD
     };
 
-    $.mobile.loading('show', {
-        text: 'Loading',
-        textVisible: true,
-        theme: 'z',
-        html: ""
-    });
+//    $.mobile.loading('show', {
+//        text: 'Loading',
+//        textVisible: true,
+//        theme: 'z',
+//        html: ""
+//    });
     // $.get('https://cors-anywhere.herokuapp.com/' + 'https://vlbisysmon.evlbi.wettzell.de/monitoring_archive/fs_web_pages/wettzell/Antenna.html', function(data) {
     //     $ht = $.parseHTML(data);
     //     console.log($ht);
@@ -172,6 +172,6 @@ function updateAntenna() {
         // $image = $('<img src = "https://vlbisysmon.evlbi.wettzell.de/monitoring_archive/fs_web_pages/wettzell/WebCamImage.jpg"></img>');
         // $content.append($image);
 
-        $.mobile.loading("hide");
+      //  $.mobile.loading("hide");
     });
 }

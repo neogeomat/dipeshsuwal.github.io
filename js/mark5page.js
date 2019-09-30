@@ -16,12 +16,12 @@ function updateMark5() {
         '%': [4, 5],
         'Check UT': [4, 6]
     };
-    $.mobile.loading('show', {
-        text: 'Loading',
-        textVisible: true,
-        theme: 'z',
-        html: ""
-    });
+//    $.mobile.loading('show', {
+//        text: 'Loading',
+//        textVisible: true,
+//        theme: 'z',
+//        html: ""
+//    });
     // $.get('https://cors-anywhere.herokuapp.com/' + 'https://vlbisysmon.evlbi.wettzell.de/monitoring_archive/fs_web_pages/wettzell/Mark5RemainingCapacity.html', function(data) {
     //     $ht = $.parseHTML(data);
     //     console.log($ht);
@@ -82,6 +82,6 @@ function updateMark5() {
             }
         }
         // console.log(data);
-        $.mobile.loading("hide");
+       // $.mobile.loading("hide");
     });
 }

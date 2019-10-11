@@ -5,7 +5,12 @@ $(document).on("pageshow", "#status", function(e) {
     persistentNavbar(e);
     console.log('pageshow triggered');
     updateStatus();
-    setInterval(updateStatus, $reloadTime);
+    $statusPageReloadObj = setInterval(updateStatus, $reloadTime);
+});
+
+$(document).on("pagehide", "#status", function(e) {
+    console.log('status pagehide triggered');
+    clearInterval($statusPageReloadObj);
 });
 
 $(document).on("pageshow", "#mark5", function(e) {
@@ -40,10 +45,10 @@ $(document).on("pageshow", "#logs", function(e) {
     setInterval(updateLogs, $reloadTime2);
 });
 $(document).on("pageshow", "#picture", function(e) {
-    persistentNavbar(e);
+    // persistentNavbar(e);
     console.log('pageshow triggered');
-    updatePicture();
-    setInterval(updatePicture, $reloadTime);
+    // updatePicture();
+    // setInterval(updatePicture, $reloadTime);
 });
 $(document).ready(function() {
     // $.mobile.changePage("#mark5");

@@ -94,7 +94,7 @@ function updateSystemTemp() {
                 const elementB = $dataB[ele];
                 $block = $('<div>', { class: 'ui-block-' + block_letter });
                 $gridB.append($block);
-                $block.append($(`<div class="ui-bar ui-bar-a"><span id="">${$table.children[elementB[0]+i].children[elementB[1]].innerHTML} </span></div>`));
+                $block.append($(`<div class="ui-bar ui-bar-a"><span id="">${f$table.children[elementB[0]+i].children[elementB[1]].innerHTML} </span></div>`));
             }
         }
         // console.log(data);

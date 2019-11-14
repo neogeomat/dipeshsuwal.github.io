@@ -1,7 +1,7 @@
 function updatePicture() {
     let col = 1;
-    $status = {
-        'Error': [1, 1]
+    $statusPic = {
+        'Picture': [1, 1]
     };
 //    $.mobile.loading('show', {
 //        text: 'Loading',
@@ -50,9 +50,9 @@ function updatePicture() {
         $grid = $('<div>', { class: `ui-grid-${grid_letter} ui-responsive` });
         $content.append($grid);
         // debugger;
-        for (const ele in $status) {
-            if ($status.hasOwnProperty(ele)) {
-                const element = $status[ele];
+        for (const ele in $statusPic) {
+            if ($statusPic.hasOwnProperty(ele)) {
+                const element = $statusPic[ele];
                 // $('#' + ele + ' span').text($table.children[element[0]].children[element[1]].textContent);
                 $block = $('<div>', { class: 'ui-block-' + block_letter });
                 $grid.append($block);
